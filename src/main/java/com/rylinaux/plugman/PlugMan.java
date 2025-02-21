@@ -226,7 +226,7 @@ public class PlugMan extends JavaPlugin {
             String hash = null;
             try {
                 hash = Files.asByteSource(file).hash(Hashing.md5()).toString();
-            } catch (IOException e) {
+            } catch (Throwable e) {
                 e.printStackTrace();
             }
             this.fileHashMap.put(file.getName(), hash);
@@ -234,7 +234,7 @@ public class PlugMan extends JavaPlugin {
             JarFile jarFile = null;
             try {
                 jarFile = new JarFile(file);
-            } catch (IOException e) {
+            } catch (Throwable e) {
                 if (e instanceof ZipException) {
                     System.out.println("Possible broken plugin detected: " + file.getName());
                     continue;
@@ -248,7 +248,7 @@ public class PlugMan extends JavaPlugin {
             InputStream stream;
             try {
                 stream = jarFile.getInputStream(jarFile.getEntry("plugin.yml"));
-            } catch (IOException e) {
+            } catch (Throwable e) {
                 e.printStackTrace();
                 continue;
             }
