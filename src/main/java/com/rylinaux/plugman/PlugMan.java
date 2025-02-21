@@ -250,7 +250,7 @@ public class PlugMan extends JavaPlugin {
                 stream = jarFile.getInputStream(jarFile.getEntry("plugin.yml"));
             } catch (Throwable e) {
                 e.printStackTrace();
-                this.getLogger().warn("Cannot load inputstream from: " + file);
+                this.getLogger().warning("Cannot load inputstream from: " + file);
                 continue;
             }
 
