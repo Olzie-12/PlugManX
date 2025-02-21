@@ -167,8 +167,8 @@ public class PlugMan extends JavaPlugin {
                 paperVersion += Integer.parseInt(version[2]);
 
             this.pluginManager = paperVersion >= 2005?
-                                 new ModernPaperPluginManager(new BukkitPluginManager()) :
-                                 new PaperPluginManager(new BukkitPluginManager());
+                    new ModernPaperPluginManager(new BukkitPluginManager()) :
+                    new PaperPluginManager(new BukkitPluginManager());
         } catch (Throwable ignored) {
             this.pluginManager = new BukkitPluginManager();
         }
